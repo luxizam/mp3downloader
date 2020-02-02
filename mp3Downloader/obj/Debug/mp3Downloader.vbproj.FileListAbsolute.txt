@@ -1,0 +1,11 @@
+C:\Users\Apolo\source\repos\mp3Downloader\mp3Downloader\bin\Debug\mp3Downloader.exe.config
+C:\Users\Apolo\source\repos\mp3Downloader\mp3Downloader\bin\Debug\mp3Downloader.exe
+C:\Users\Apolo\source\repos\mp3Downloader\mp3Downloader\bin\Debug\mp3Downloader.pdb
+C:\Users\Apolo\source\repos\mp3Downloader\mp3Downloader\bin\Debug\mp3Downloader.xml
+C:\Users\Apolo\source\repos\mp3Downloader\mp3Downloader\obj\Debug\mp3Downloader.vbprojAssemblyReference.cache
+C:\Users\Apolo\source\repos\mp3Downloader\mp3Downloader\obj\Debug\mp3Downloader.Form1.resources
+C:\Users\Apolo\source\repos\mp3Downloader\mp3Downloader\obj\Debug\mp3Downloader.Resources.resources
+C:\Users\Apolo\source\repos\mp3Downloader\mp3Downloader\obj\Debug\mp3Downloader.vbproj.GenerateResource.cache
+C:\Users\Apolo\source\repos\mp3Downloader\mp3Downloader\obj\Debug\mp3Downloader.exe
+C:\Users\Apolo\source\repos\mp3Downloader\mp3Downloader\obj\Debug\mp3Downloader.xml
+C:\Users\Apolo\source\repos\mp3Downloader\mp3Downloader\obj\Debug\mp3Downloader.pdb
