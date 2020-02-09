@@ -1,74 +1,68 @@
 ﻿Imports System.Threading
+Imports System.Timers
 
 Public Class Tarea
 
 
 
-    Private name As String
-    Public terminado As Boolean = False
-    Private boton As Button
+    Private check As CheckBox
+    Private nombre As Label
+    Private barraDeProgreso As ProgressBar
+    Private estadoDeLaDescarga As PictureBox
+    Private hilo As Boolean
 
-    Sub New(name As String, boton As Button)
 
-        Me.name = name
-        Me.boton = boton
-
+    Sub New()
+        check = New CheckBox()
+        nombre = New Label()
+        barraDeProgreso = New ProgressBar()
+        estadoDeLaDescarga = New PictureBox()
+        hilo = True
     End Sub
+    Public Property setAndGetcheck As CheckBox
+        Get
+            Return check
+        End Get
+        Set(value As CheckBox)
+            check = value
+        End Set
+    End Property
 
+    Public Property setAndGetNombre As Label
+        Get
+            Return nombre
+        End Get
+        Set(value As Label)
+            nombre = value
+        End Set
+    End Property
 
-    Public Sub Tarea1()
+    Public Property setAndGetBarraDeProgreso As ProgressBar
+        Get
+            Return barraDeProgreso
+        End Get
+        Set(value As ProgressBar)
+            barraDeProgreso = value
+        End Set
+    End Property
 
+    Public Property setAndGetEstadoDeLaDescarga As PictureBox
+        Get
+            Return estadoDeLaDescarga
+        End Get
+        Set(value As PictureBox)
+            estadoDeLaDescarga = value
+        End Set
+    End Property
 
-        Thread.Sleep(4000)
-        boton.PerformClick()
-
-        'For i As Integer = 0 To 5
-
-
-
-        '    'Try
-
-        '    '    'If Not IsNothing(web.Document) Then
-        '    '    '    Console.WriteLine("OLEEEEEEE!!!!!!!!")
-        '    '    'End If
-
-        '    'Catch ex As Exception
-
-        '    '    Console.WriteLine("buscando boton....")
-        '    '    Thread.Sleep(2000)
-
-        '    'End Try
-
-
-
-
-        'Next
-
-        'web.Document.GetElementById("process_mp3_a").InvokeMember("click")
-
-        'Dim bandera = False
-
-        'While (bandera = False)
-
-        '    '1º paso
-        '    If Not IsNothing(Me.web.Document) Then
-
-        '        web.Document.GetElementById("process_mp3_a").InvokeMember("click")
-
-        '        bandera = True
-        '    End If
-
-        'End While
-
-
-        'terminado = True
-
-
-    End Sub
-
-
-
-
+    Public Property setAndGetHilo As Boolean
+        Get
+            Return hilo
+        End Get
+        Set(value As Boolean)
+            hilo = value
+        End Set
+    End Property
 
 
 

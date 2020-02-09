@@ -120,5 +120,17 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RapidRadiantBug-small.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kKXEaz6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\allok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\waiting.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
