@@ -10,6 +10,7 @@ Public Class Tarea
     Private barraDeProgreso As ProgressBar
     Private estadoDeLaDescarga As PictureBox
     Private hilo As Boolean
+    Private linkDescarga As String
 
 
     Sub New()
@@ -64,6 +65,15 @@ Public Class Tarea
         End Set
     End Property
 
+
+    Public Property setAndGetLinkDescarga As String
+        Get
+            Return linkDescarga
+        End Get
+        Set(value As String)
+            linkDescarga = value
+        End Set
+    End Property
 
 
 

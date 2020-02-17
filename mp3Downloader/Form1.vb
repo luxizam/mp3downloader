@@ -7,19 +7,9 @@ Public Class Form1
     'Dim WithEvents wb As New WebBrowser
 
     Dim parar As String = ""
-
-    'Dim wb As New WebBrowser
-    'Dim almacen As New ArrayList
-    'Dim almacenCheckBoxs As New ArrayList
-    'Dim almacenBarraProgreso As New ArrayList
-
     Dim almacenGeneral As New List(Of Tarea)
 
     Dim selector As Integer = 0
-
-    'Dim almacenDelTiempo As New List(Of System.Timers.Timer)
-    'Dim almacenDeNavegadores As New List(Of WebBrowser)
-
     Dim web As New WebBrowser()
 
     Dim timer As New Timers.Timer()
@@ -29,196 +19,11 @@ Public Class Form1
 
         TextBox1.Text = "https://www.youtube.com/watch?v=eKaD_-Tl544"
 
-
+        web.Visible = False
         'timer.Interval = 2000
         'AddHandler timer.Elapsed, New ElapsedEventHandler(AddressOf TimerElapsed)
 
     End Sub
-
-    'Private Sub Button1_Click(sender As Object, e As EventArgs)
-
-    '    'Dim lista = TextBox1.Text.Split(vbCrLf)
-
-
-
-    '    'For i As Integer = 0 To lista.Count - 1
-
-    '    '    'lista(i)
-
-    '    '    almacen.Add(New WebBrowser)
-
-    '    '    Me.Controls.Add(almacen(i))
-    '    '    almacen(i).BringToFront()
-    '    '    'wb.Navigate("www.google.com")
-    '    '    almacen(i).ScriptErrorsSuppressed = True
-    '    '    almacen(i).Width = 100
-    '    '    almacen(i).Height = 100
-
-    '    '    If i = 0 Then
-    '    '        CType(almacen(i), WebBrowser).Location = (New Point(668, 12))
-    '    '    End If
-
-
-
-    '    '    Dim lnkVideo = lista(i)
-
-    '    '    Dim linkActual = lnkVideo.ToString.Replace("https://www.youtube.com/watch?v=", "https://www.y2mate.com/es/youtube/")
-
-    '    '    almacen(i).Navigate(linkActual)
-
-
-    '    'Next
-
-
-
-
-
-
-    'End Sub
-
-    'Private Sub Button2_Click(sender As Object, e As EventArgs)
-
-    '    ''1º paso
-    '    'almacen(0).Document.GetElementById("process_mp3_a").InvokeMember("click")
-
-    '    ''2º paso
-
-    '    'Dim paginaString = almacen(0).Document.GetElementById("process-result").InnerHtml
-
-    '    'paginaString = "<padre> " & paginaString & " </padre>"
-    '    'paginaString = paginaString.Replace("&nbsp;", "")
-
-    '    'If paginaString <> "<padre>  </padre>" Then
-
-    '    '    Dim doc As New XmlDocument()
-    '    '    doc.LoadXml(paginaString)
-
-
-    '    '    Dim empieza = InStr(paginaString, "http://dl89.y2mate.com/?")
-
-    '    '    Dim tmpCadena AS String = ""
-
-    '    '    For i As Integer = empieza - 1 To paginaString.ToString.Length - 1
-    '    '        If paginaString(i) = """" Then
-    '    '            Exit For
-    '    '        Else
-    '    '            tmpCadena += paginaString(i)
-    '    '        End If
-
-    '    '    Next
-
-
-
-
-
-
-
-
-    '    '    'Dim cadena = doc.DocumentElement.ChildNodes(1).ChildNodes(0).OuterXml
-    '    '    'cadena = cadena.Replace("""", "*")
-    '    '    'cadena = cadena.Replace("<a class=*btn btn-success btn-file* href=*", "")
-    '    '    'cadena = cadena.Replace("* rel=*nofollow* type=*button*><i class=*glyphicon glyphicon-download-alt*></i> Descargar .mp3    </a>", "")
-
-    '    '    '3º paso
-
-    '    '    'My.Computer.Network.DownloadFile(cadena, "C:\Users\Apolo\Desktop\" & almacen(0).Document.GetElementsByTagName("b")(0).OuterText & ".mp3")
-    '    '    'My.Computer.Network.DownloadFile(cadena, "C:\Users\Apolo\Desktop\" & almacen(0).Document.GetElementsByTagName("b")(0).OuterText & ".mp3", "", "", False, 500, True)
-    '    '    'My.Computer.Network.DownloadFile(cadena, "hola.mp3", "", "", False, 500, True)
-
-
-
-
-    '    'End If
-
-
-
-    'End Sub
-
-    'Private Sub Button3_Click(sender As Object, e As EventArgs)
-
-
-    '    'Timer1.Start()
-
-
-    'End Sub
-
-    'Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-
-    '    If parar.ToString = "" Then
-
-    '        Try
-
-    '            '1º paso
-    '            web.Document.GetElementById("process_mp3_a").InvokeMember("click")
-
-    '            '2º paso
-
-    '            Dim paginaString = web.Document.GetElementById("process-result").InnerHtml
-
-    '            paginaString = "<padre> " & paginaString & " </padre>"
-    '            paginaString = paginaString.Replace("&nbsp;", "")
-
-    '            If paginaString <> "<padre>  </padre>" Then
-
-    '                Dim doc As New XmlDocument()
-    '                doc.LoadXml(paginaString)
-
-
-    '                Dim empieza = InStr(paginaString, "http://dl89.y2mate.com/?")
-
-    '                Dim linkCadena As String = ""
-
-    '                For i As Integer = empieza - 1 To paginaString.ToString.Length - 1
-    '                    If paginaString(i) = """" Then
-    '                        Exit For
-    '                    Else
-    '                        linkCadena += paginaString(i)
-    '                    End If
-
-    '                Next
-
-
-
-    '                almacenGeneral(selector).setAndGetNombre.Text = web.Document.GetElementsByTagName("b")(0).OuterText
-
-    '                ''3º paso
-
-    '                'My.Computer.Network.DownloadFile(linkCadena, "C:\Users\Apolo\Desktop\" & almacen(0).Document.GetElementsByTagName("b")(0).OuterText & ".mp3", "", "", False, 500, True)
-
-    '                parar = "stop"
-
-
-
-    '            End If
-
-
-
-    '        Catch ex As Exception
-
-    '            'MessageBox.Show("Aún no esta listo el enlace")
-    '            Console.WriteLine("Aún no esta listo el enlace  " & ex.ToString)
-
-    '        End Try
-
-    '    Else
-
-    '        Timer1.Stop()
-
-    '        'ProgressBar1.Value = 100
-
-    '        Console.WriteLine("Exitooooo!")
-
-    '        'almacenGeneral(selector).setAndGetBarraDeProgreso.Value = 100
-    '        almacenGeneral(selector).setAndGetEstadoDeLaDescarga.Image = My.Resources.allok
-
-
-    '    End If
-
-
-
-
-
-    'End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
 
@@ -315,91 +120,7 @@ Public Class Form1
 
     End Sub
 
-    Sub TimerElapsed(ByVal sender As Object, ByVal e As ElapsedEventArgs)
 
-
-
-
-        'If almacenGeneral(selector).setAndGetHilo Then
-
-
-
-        Try
-
-                '1º paso
-                web.Document.GetElementById("process_mp3_a").InvokeMember("click")
-
-                '2º paso
-
-                Dim paginaString = web.Document.GetElementById("process-result").InnerHtml
-
-                paginaString = "<padre> " & paginaString & " </padre>"
-                paginaString = paginaString.Replace("&nbsp;", "")
-
-                If paginaString <> "<padre>  </padre>" Then
-
-                    Dim doc As New XmlDocument()
-                    doc.LoadXml(paginaString)
-
-
-                    Dim empieza = InStr(paginaString, "http://dl89.y2mate.com/?")
-
-                    Dim linkCadena As String = ""
-
-                    For i As Integer = empieza - 1 To paginaString.ToString.Length - 1
-                        If paginaString(i) = """" Then
-                            Exit For
-                        Else
-                            linkCadena += paginaString(i)
-                        End If
-
-                    Next
-
-
-
-                    almacenGeneral(selector).setAndGetNombre.Text = web.Document.GetElementsByTagName("b")(0).OuterText
-
-                    ''3º paso
-
-                    'My.Computer.Network.DownloadFile(linkCadena, "C:\Users\Apolo\Desktop\" & almacen(0).Document.GetElementsByTagName("b")(0).OuterText & ".mp3", "", "", False, 500, True)
-                    'Cancelamos el hilo.
-                    'almacenGeneral(selector).setAndGetHilo = False
-
-
-                    'Timer1.Stop()
-
-                    'ProgressBar1.Value = 100
-
-                    Console.WriteLine("Exitooooo!")
-
-                    'almacenGeneral(selector).setAndGetBarraDeProgreso.Value = 100
-                    almacenGeneral(selector).setAndGetEstadoDeLaDescarga.Image = My.Resources.allok
-
-
-
-
-                'timer.Stop()
-
-
-
-
-            End If
-
-
-
-            Catch ex As Exception
-
-                'MessageBox.Show("Aún no esta listo el enlace")
-                Console.WriteLine("Aún no esta listo el enlace  " & ex.ToString)
-
-            End Try
-
-
-
-
-
-
-    End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
 
@@ -423,7 +144,7 @@ Public Class Form1
                     doc.LoadXml(paginaString)
 
 
-                    Dim empieza = InStr(paginaString, "http://dl89.y2mate.com/?")
+                    Dim empieza = InStr(paginaString, "http:")
 
                     Dim linkCadena As String = ""
 
@@ -438,7 +159,7 @@ Public Class Form1
 
 
 
-                    almacenGeneral(selector).setAndGetNombre.Text = web.Document.GetElementsByTagName("b")(0).OuterText
+                    almacenGeneral(selector).setAndGetNombre.Text = web.Document.GetElementsByTagName("b")(0).OuterText & ".mp3"
 
                     ''3º paso
 
@@ -456,7 +177,14 @@ Public Class Form1
                     'almacenGeneral(selector).setAndGetBarraDeProgreso.Value = 100
                     almacenGeneral(selector).setAndGetEstadoDeLaDescarga.Image = My.Resources.allok
 
+                    almacenGeneral(selector).setAndGetLinkDescarga = linkCadena
+
+
+
                     almacenGeneral(selector).setAndGetHilo = False
+
+
+                    Timer1.Stop()
 
 
                 End If
@@ -474,6 +202,28 @@ Public Class Form1
 
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
+
+        For i As Integer = 0 To almacenGeneral.Count - 1
+
+
+
+            My.Computer.Network.DownloadFile(almacenGeneral(i).setAndGetLinkDescarga, "C:\Users\Apolo\Desktop\" & almacenGeneral(i).setAndGetNombre.Text, "", "", True, 5000, True)
+
+
+
+            Console.WriteLine(almacenGeneral(i).setAndGetLinkDescarga)
+
+
+
+
+        Next
+
+
+
+
+
+    End Sub
 End Class
 
