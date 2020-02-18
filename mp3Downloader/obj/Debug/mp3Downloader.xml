@@ -27,6 +27,16 @@ mp3Downloader
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:mp3Downloader.My.Resources.Resources.cerrar">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:mp3Downloader.My.Resources.Resources.reportes">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:mp3Downloader.My.Resources.Resources.waiting">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
