@@ -11,6 +11,8 @@ Public Class Tarea
     Private estadoDeLaDescarga As PictureBox
     Private hilo As Boolean
     Private linkDescarga As String
+    Private Cancelar As Button
+
 
 
     Sub New()
@@ -19,7 +21,20 @@ Public Class Tarea
         barraDeProgreso = New ProgressBar()
         estadoDeLaDescarga = New PictureBox()
         hilo = True
+        Cancelar = New Button()
+        Cancelar.Text = "Borrar"
     End Sub
+
+    Public Property setAndGetCancelar As Button
+        Get
+            Return Cancelar
+        End Get
+        Set(value As Button)
+            Cancelar = value
+        End Set
+    End Property
+
+
     Public Property setAndGetcheck As CheckBox
         Get
             Return check

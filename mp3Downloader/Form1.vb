@@ -5,27 +5,16 @@ Imports System.Xml
 
 Public Class Form1
 
-    'Dim WithEvents wb As New WebBrowser
-
     Dim parar As String = ""
     Dim almacenGeneral As New List(Of Tarea)
-
     Dim selector As Integer = 0
-
     Dim web As New WebBrowser()
-
-    'Dim timer As New Timers.Timer()
-
     Dim contador As Integer = 0
 
 
-
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TextBox1.Text = "https://www.youtube.com/watch?v=eKaD_-Tl544" & vbCrLf & "https://www.youtube.com/watch?v=1GS7wxWPaxc"
 
-        'TextBox1.Text = "https://www.youtube.com/watch?v=eKaD_-Tl544"
-        'TextBox1.Text = "https://www.youtube.com/watch?v=fUSwNtLiR_w"
-
+        'TextBox1.Text = "https://www.youtube.com/watch?v=pPoAE5DnQRg"
 
         Me.Controls.Add(web)
         web.BringToFront()
@@ -36,8 +25,44 @@ Public Class Form1
         web.Location = (New Point(20, 300))
         web.Visible = False
 
+    End Sub
+
+    Protected Sub updateFunc(ByVal sender As Object, ByVal e As System.EventArgs)
+        Dim indice = Val(CType(sender, Button).Name)
 
 
+        Timer1.Stop()
+
+        If almacenGeneral(indice).setAndGetHilo = False Then
+            selector = selector - 1
+
+            Panel1.Controls.Remove(almacenGeneral(selector).setAndGetcheck)
+            Panel1.Controls.Remove(almacenGeneral(selector).setAndGetNombre)
+            Panel1.Controls.Remove(almacenGeneral(selector).setAndGetBarraDeProgreso)
+            Panel1.Controls.Remove(almacenGeneral(selector).setAndGetEstadoDeLaDescarga)
+            Panel1.Controls.Remove(almacenGeneral(selector).setAndGetCancelar)
+
+            almacenGeneral.RemoveAt(selector)
+
+        Else
+
+
+            Panel1.Controls.Remove(almacenGeneral(selector).setAndGetcheck)
+            Panel1.Controls.Remove(almacenGeneral(selector).setAndGetNombre)
+            Panel1.Controls.Remove(almacenGeneral(selector).setAndGetBarraDeProgreso)
+            Panel1.Controls.Remove(almacenGeneral(selector).setAndGetEstadoDeLaDescarga)
+            Panel1.Controls.Remove(almacenGeneral(selector).setAndGetCancelar)
+
+            almacenGeneral.RemoveAt(selector)
+
+
+        End If
+
+
+
+
+
+        contador = 0
 
     End Sub
 
@@ -66,27 +91,31 @@ Public Class Form1
                 Panel1.Controls.Add(almacenGeneral(selector).setAndGetNombre)
                 Panel1.Controls.Add(almacenGeneral(selector).setAndGetBarraDeProgreso)
                 Panel1.Controls.Add(almacenGeneral(selector).setAndGetEstadoDeLaDescarga)
-                Panel1.Controls.Add(almacenGeneral(selector).setAndGetEstadoDeLaDescarga)
+                Panel1.Controls.Add(almacenGeneral(selector).setAndGetCancelar)
 
+                AddHandler almacenGeneral(selector).setAndGetCancelar.Click, AddressOf updateFunc
 
                 almacenGeneral(selector).setAndGetcheck.Checked = True
-                almacenGeneral(selector).setAndGetNombre.Text = "Cancion: " & selector
+                almacenGeneral(selector).setAndGetNombre.Text = " Cargando... "
                 almacenGeneral(selector).setAndGetEstadoDeLaDescarga.Image = My.Resources.waiting
                 almacenGeneral(selector).setAndGetEstadoDeLaDescarga.SizeMode = PictureBoxSizeMode.StretchImage
-
+                almacenGeneral(selector).setAndGetCancelar.Name = selector
 
                 If selector = 0 Then
 
                     almacenGeneral(selector).setAndGetNombre.Location = (New Point(20, 20))
                     almacenGeneral(selector).setAndGetEstadoDeLaDescarga.Location = (New Point(200, 5))
                     almacenGeneral(selector).setAndGetBarraDeProgreso.Location = (New Point(450, 20))
-                    almacenGeneral(selector).setAndGetcheck.Location = (New Point(650, 20))
+                    almacenGeneral(selector).setAndGetcheck.Location = (New Point(600, 20))
+                    almacenGeneral(selector).setAndGetCancelar.Location = (New Point(720, 20))
+
                 Else
 
                     almacenGeneral(selector).setAndGetNombre.Location = (New Point(20, almacenGeneral(selector - 1).setAndGetNombre.Location.Y + 50))
                     almacenGeneral(selector).setAndGetEstadoDeLaDescarga.Location = (New Point(200, almacenGeneral(selector - 1).setAndGetNombre.Location.Y + 30))
                     almacenGeneral(selector).setAndGetBarraDeProgreso.Location = (New Point(450, almacenGeneral(selector - 1).setAndGetNombre.Location.Y + 50))
-                    almacenGeneral(selector).setAndGetcheck.Location = (New Point(650, almacenGeneral(selector - 1).setAndGetNombre.Location.Y + 50))
+                    almacenGeneral(selector).setAndGetcheck.Location = (New Point(600, almacenGeneral(selector - 1).setAndGetNombre.Location.Y + 50))
+                    almacenGeneral(selector).setAndGetCancelar.Location = (New Point(720, almacenGeneral(selector - 1).setAndGetNombre.Location.Y + 50))
 
                 End If
 
@@ -121,14 +150,8 @@ Public Class Form1
                 If contador = 0 Then
                     '1º paso
                     web.Document.GetElementById("process_mp3_a").InvokeMember("click")
-
                     contador = contador + 1
-
-
                 End If
-
-
-
 
                 '2º paso
 
@@ -172,8 +195,6 @@ Public Class Form1
 
                     almacenGeneral(selector).setAndGetLinkDescarga = linkCadena
 
-
-
                     almacenGeneral(selector).setAndGetHilo = False
 
 
@@ -188,10 +209,6 @@ Public Class Form1
 
                 End If
 
-
-
-
-
             Catch ex As Exception
 
                 'MessageBox.Show("Aún no esta listo el enlace")
@@ -205,27 +222,24 @@ Public Class Form1
 
     Private Sub btnDescargar_Click(sender As Object, e As EventArgs) Handles btnDescargar.Click
 
+        Dim rutaAbsolutaMusic = "C:\Users\" & Environment.UserName & "\Music\"
 
         For i As Integer = 0 To almacenGeneral.Count - 1
 
             If almacenGeneral(i).setAndGetLinkDescarga <> "" Then
 
-
-
-                My.Computer.Network.DownloadFile(almacenGeneral(i).setAndGetLinkDescarga, Environment.CurrentDirectory & "\" & limpiezaDeNombres(almacenGeneral(i).setAndGetNombre.Text) & ".mp3", "", "", True, 5000, True)
+                If almacenGeneral(i).setAndGetcheck.Checked = True Then
+                    My.Computer.Network.DownloadFile(almacenGeneral(i).setAndGetLinkDescarga, rutaAbsolutaMusic & limpiezaDeNombres(almacenGeneral(i).setAndGetNombre.Text) & ".mp3", "", "", True, 5000, True)
+                End If
 
             End If
 
             'Permitir solo caracteres de la a a la z
 
-            Console.WriteLine(almacenGeneral(i).setAndGetLinkDescarga)
+            'Console.WriteLine(almacenGeneral(i).setAndGetLinkDescarga)
 
 
         Next
-
-
-
-
 
     End Sub
 

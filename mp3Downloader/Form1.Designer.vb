@@ -29,7 +29,6 @@ Partial Class Form1
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnDescargar = New System.Windows.Forms.Button()
-        Me.FlowLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -57,20 +56,19 @@ Partial Class Form1
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.AutoScroll = True
-        Me.FlowLayoutPanel1.Controls.Add(Me.Panel1)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(549, 0)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(562, 0)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(710, 646)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(838, 643)
         Me.FlowLayoutPanel1.TabIndex = 17
         '
         'Panel1
         '
         Me.Panel1.AutoScroll = True
         Me.Panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Panel1.Location = New System.Drawing.Point(3, 3)
+        Me.Panel1.Location = New System.Drawing.Point(562, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(707, 676)
+        Me.Panel1.Size = New System.Drawing.Size(838, 679)
         Me.Panel1.TabIndex = 18
         '
         'btnDescargar
@@ -88,7 +86,8 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1259, 646)
+        Me.ClientSize = New System.Drawing.Size(1400, 643)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnDescargar)
         Me.Controls.Add(Me.btnAnadir)
         Me.Controls.Add(Me.FlowLayoutPanel1)
@@ -96,7 +95,6 @@ Partial Class Form1
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "Form1"
         Me.Text = "Form1"
-        Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
